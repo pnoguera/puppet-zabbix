@@ -227,5 +227,6 @@ LoadModulePath=<%= @loadmodulepath %>
 #       It is allowed to include multiple LoadModule parameters.
 #
 <% if @loadmodule -%>
-LoadModule=<%= @loadmodule %>
+<% loadmodule.each do |parameter| %>LoadModule=<%= parameter %>
+<% end %>
 <% end -%>
