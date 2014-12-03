@@ -158,6 +158,7 @@
 #
 class zabbix::agent (
   $zabbix_version       = $zabbix::params::zabbix_version,
+  $zabbix_ensure        = $zabbix::params::zabbix_ensure,
   $manage_firewall      = $zabbix::params::manage_firewall,
   $manage_repo          = $zabbix::params::manage_repo,
   $manage_resources     = $zabbix::params::manage_resources,
@@ -247,7 +248,7 @@ class zabbix::agent (
 
   # Installing the package
   package { 'zabbix-agent':
-    ensure  => present,
+    ensure  => $zabbix_ensure,
   }
 
   # Controlling the 'zabbix-agent' service

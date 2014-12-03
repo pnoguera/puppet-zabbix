@@ -14,6 +14,7 @@ class zabbix::params {
   # Zabbix overall params
   $dbtype                         = 'postgresql'
   $zabbix_version                 = '2.2'
+  $zabbix_ensure                  = 'present'
   $zabbix_timezone                = 'Europe/Amsterdam'
   $manage_database                = true
   $manage_vhost                   = true
