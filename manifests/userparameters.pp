@@ -49,22 +49,22 @@ define zabbix::userparameters (
 ) {
   $include_dir = $zabbix::agent::include_dir
 
-  if $source != '' {
-    file { "${include_dir}/${name}.conf":
+  File {
       ensure  => present,
       owner   => 'zabbix',
       group   => 'zabbix',
       mode    => '0755',
+      notify  => Service['zabbix-agent'],
+  }
+
+  if $source != '' {
+    file { "${include_dir}/${name}.conf":
       source  => $source,
     }
   }
 
   if $content != '' {
     file { "${include_dir}/${name}.conf":
-      ensure  => present,
-      owner   => 'zabbix',
-      group   => 'zabbix',
-      mode    => '0755',
       content => $content,
     }
   }
