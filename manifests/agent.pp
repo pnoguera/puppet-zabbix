@@ -260,6 +260,15 @@ class zabbix::agent (
     require    => Package['zabbix-agent'],
   }
 
+  # Give zabbix user some permissions to read log files in debian
+  if ($::operatingsystem == 'Debian') {
+      user { 'zabbix':
+        ensure  => present,
+        groups  => ['adm'],
+        require    => Package['zabbix-agent'],
+      }
+  }
+
   # Configuring the zabbix-agent configuration file
   file { '/etc/zabbix/zabbix_agentd.conf':
     ensure  => present,
