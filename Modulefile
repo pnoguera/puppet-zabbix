@@ -18,4 +18,5 @@ dependency 'puppetlabs/stdlib', '>= 4.0.0'
 dependency 'puppetlabs/mysql', '>= 2.0.0'
 dependency 'puppetlabs/apache', '>= 1.0.0'
 dependency 'puppetlabs/firewall', '>= 1.0.0'
+dependency 'puppetlabs/apt', '>= 1.8.0'
 
